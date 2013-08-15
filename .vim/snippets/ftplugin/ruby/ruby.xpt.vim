@@ -1,0 +1,16 @@
+XPTemplate priority=personal
+
+XPT dbg
+require 'ruby-debug'; Debugger.start; debugger
+
+XPT dbgr
+require 'ruby-debug'; Debugger.wait_connection = true; Debugger.start_remote
+
+XPT d
+debugger; 0;
+
+XPT bp
+require 'pry'; binding.pry
+
+XPT brp
+require 'pry-remote'; binding.remote_pry
