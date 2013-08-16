@@ -177,7 +177,7 @@ let NERDTreeIgnore=['\~$', '\.DS_Store']
 "==================================================================
 
 " Format entire file
-nmap <leader>fef ggVG=
+nmap <leader>fef ggVG=``
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
