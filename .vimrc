@@ -105,6 +105,10 @@ if filereadable(".vimrc.local")
   source .vimrc.local
 endif
 
+" Set syntax folding method
+set foldmethod=syntax
+set foldlevelstart=99
+
 "==================================================================
 " TMUX OPTIONS
 "==================================================================
