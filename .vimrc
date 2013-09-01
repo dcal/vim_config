@@ -14,10 +14,12 @@ Bundle 'gmarik/vundle'
 "==================================================================
 
 Bundle 'drmingdrmer/xptemplate'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'johnadamson/Align.vim'
 Bundle 'johnadamson/ZoomWin.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'pangloss/vim-javascript'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
