@@ -146,10 +146,10 @@ let g:xptemplate_snippet_folders=[$HOME . '/.vim/snippets']
 
 " Vroom
 let g:vroom_use_bundle_exec=1
+let g:vroom_clear_screen=0
 
 " Syntastic
-" let g:syntastic_ruby_exec = 'ruby19'  " support for new hash syntax
-let g:syntastic_ruby_exec='ruby19'
+let g:syntastic_ruby_exec='ruby'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=0
@@ -170,7 +170,7 @@ let NERDTreeIgnore=['\~$', '\.DS_Store']
 
 " CTags / Rails.vim
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
-"let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 "==================================================================
 " KEY BINDINGS
