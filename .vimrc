@@ -16,6 +16,7 @@ Bundle 'gmarik/vundle'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jgdavey/vim-blockle'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'johnadamson/Align.vim'
 Bundle 'johnadamson/ZoomWin.vim'
 Bundle 'kien/ctrlp.vim'
@@ -50,7 +51,7 @@ set hlsearch                      " do search highlighting
 set ignorecase smartcase          " searches case-sensitive only if they contain upper-case characters
 set incsearch                     " do incremental searching
 set laststatus=2                  " always display the status line
-set list listchars=tab:»·,trail:· " display extra whitespace
+set list listchars=tab:▸\ ,trail:· " display tabs and trailing whitespace
 set nobackup
 set nocompatible
 set noswapfile
@@ -125,6 +126,7 @@ augroup vimrcEx
   au!
 
   autocmd FileType text setlocal textwidth=78
+  autocmd FileType go setlocal shiftwidth=4 tabstop=4
 
   " Jump to the last known cursor position when opening a file, but only if
   " the position is not invalid or in an event handler.
