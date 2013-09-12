@@ -108,27 +108,6 @@ set foldlevelstart=99
 " STATUSLINE
 "==================================================================
 
-" Displays the full file name with a truncated path to the left for context.
-set statusline=%.20{expand('%:p:h')}/%t\ 
-
-" Read only and modified flags.
-set statusline+=%r\ %m
-
-" Shift all other content over to the right.
-set statusline+=%=
-
-" Linting status.
-set statusline+=%{SyntasticStatuslineFlag()}\ 
-
-" Current git branch.
-set statusline+=[Git:\ %{fugitive#head()}]\ 
-
-" CURRENT/TOTAL lines.
-set statusline+=%4l/%L\ 
-
-" Percentage through the file.
-set statusline+=%P\ 
-
 "==================================================================
 " TMUX OPTIONS
 "==================================================================
