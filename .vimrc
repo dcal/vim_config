@@ -37,6 +37,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/jsbeautify'
 Bundle 'vim-scripts/openssl.vim'
+Bundle 'vim-scripts/vimwiki'
 Bundle 'widox/vim-buffer-explorer-plugin'
 
 "==================================================================
