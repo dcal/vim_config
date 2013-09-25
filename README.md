@@ -1,5 +1,5 @@
 ## About
-Yet another [Vim](http://www.vim.org) config.
+Yet another [Vim](http://www.vim.org) config for Vim 7.4.
 
 ## Installation
 
