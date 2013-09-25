@@ -166,7 +166,7 @@ let g:syntastic_auto_loc_list=2
 let g:ctrlp_working_path_mode = 0     " don't manage working directory
 let g:ctrlp_clear_cache_on_exit = 0   " remember cache from previous session
 let g:ctrlp_lazy_update = 25          " delay before updating results
-let g:ctrlp_max_height = 50
+let g:ctrlp_max_height = 30
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_custom_ignore = { 'dir': '\v[\/]\.(\.git|vendor\/vendor\/bundle)$' }
 
