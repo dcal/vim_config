@@ -62,7 +62,7 @@ set number
 set relativenumber
 set numberwidth=5
 set ruler                         " show the cursor position all the time
-set scrolloff=1                   " screen lines to keep above and below the cursor
+set scrolloff=10                  " screen lines to keep above and below the cursor
 set shortmess+=I                  " don't show startup message
 set showcmd                       " display incomplete commands
 set showmatch                     " show matching paren
