@@ -240,6 +240,8 @@ command! FormatJSON silent %!python -m json.tool
 
 " Format XML
 command! FormatXML silent %!xmllint --encode UTF-8 --format -
+
+" Show NERDTree
 map <leader>n :NERDTreeToggle<CR>
 
 " open buffer in marked
@@ -247,6 +249,9 @@ command! Marked silent !open -a "Marked.app" "%:p"
 
 " ZoomWin
 nnoremap <leader>zw :ZoomWin<CR>
+
+" New Tab
+map <leader>nt :tabe<CR>
 
 "==================================================================
 " FUNCTIONS
