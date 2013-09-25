@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " BUNDLES
 "==================================================================
 
+Bundle 'Raimondi/delimitMate'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jgdavey/vim-blockle'
