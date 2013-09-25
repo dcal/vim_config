@@ -59,6 +59,7 @@ set noswapfile
 set nowrap
 set nowritebackup
 set number
+set relativenumber
 set numberwidth=5
 set ruler                         " show the cursor position all the time
 set scrolloff=1                   " screen lines to keep above and below the cursor
