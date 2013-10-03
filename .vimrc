@@ -119,6 +119,12 @@ if executable('tmux') && $TMUX != ''
   set mouse+=a " for tmux mouse integration
 endif
 
+" Support different cursor in insert mode.
+if &term == "screen-256color"
+  let &t_SI = "\<Esc>[3 q"
+  let &t_EI = "\<Esc>[0 q"
+endif
+
 "==================================================================
 " FILE TYPE OPTIONS
 "==================================================================
