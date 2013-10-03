@@ -169,6 +169,7 @@ let g:ctrlp_lazy_update = 25          " delay before updating results
 let g:ctrlp_max_height = 30
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_custom_ignore = { 'dir': '\v[\/]\.(\.git|vendor\/vendor\/bundle)$' }
+let g:ctrlp_switch_buffer = 'et'
 
 " Nerd Tree Options
 let NERDTreeShowHidden=1
