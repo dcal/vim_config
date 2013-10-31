@@ -45,6 +45,8 @@ Bundle 'widox/vim-buffer-explorer-plugin'
 " GENERAL OPTIONS
 "==================================================================
 
+syntax enable
+
 let mapleader = ","
 set autoread                      " when file changes outside of vim, reload
 set backspace=indent,eol,start
@@ -72,12 +74,6 @@ set virtualedit=all               " allow the cursor to go in to 'invalid' place
 
 set undofile                      " Store indefinite undo
 let &undodir=expand('~/.vim/.undodir')
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
 
 " Color scheme
 set t_Co=256
