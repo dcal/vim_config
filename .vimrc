@@ -45,6 +45,14 @@ Bundle 'widox/vim-buffer-explorer-plugin'
 " GENERAL OPTIONS
 "==================================================================
 
+" To profile for performance issues, use:
+" :profile start profile.log
+" :profile func *
+" :profile file *
+" <At this point do slow actions>
+" :profile pause
+" :noautocmd qall!
+
 syntax enable
 
 let mapleader = ","
