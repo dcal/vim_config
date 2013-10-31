@@ -65,7 +65,6 @@ set incsearch                     " do incremental searching
 set laststatus=2                  " always display the status line
 set list listchars=tab:▸\ ,trail:· " display tabs and trailing whitespace
 set nobackup
-set nocompatible
 set noswapfile
 set nowrap
 set nowritebackup
