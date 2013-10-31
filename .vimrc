@@ -140,9 +140,6 @@ augroup vimrcEx
     \ endif
 augroup END
 
-" Treat <li> and <p> tags like block tags
-let g:html_indent_tags = 'li\|p'
-
 "==================================================================
 " PLUGIN OPTIONS
 "==================================================================
