@@ -130,7 +130,7 @@ augroup vimrcEx
   au!
 
   autocmd FileType text setlocal textwidth=78
-  autocmd FileType go setlocal shiftwidth=4 tabstop=4
+  autocmd FileType go setlocal shiftwidth=4 tabstop=4 makeprg=go\ build
 
   " Jump to the last known cursor position when opening a file, but only if
   " the position is not invalid or in an event handler.
