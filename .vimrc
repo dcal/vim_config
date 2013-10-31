@@ -62,6 +62,7 @@ set history=50
 set hlsearch                      " do search highlighting
 set ignorecase smartcase          " searches case-sensitive only if they contain upper-case characters
 set incsearch                     " do incremental searching
+set lazyredraw                    " dont redraw screen while executing commands, macros, etc.
 set laststatus=2                  " always display the status line
 set list listchars=tab:▸\ ,trail:· " display tabs and trailing whitespace
 set nobackup
@@ -74,9 +75,10 @@ set ruler                         " show the cursor position all the time
 set scrolloff=10                  " screen lines to keep above and below the cursor
 set shortmess+=I                  " don't show startup message
 set showcmd                       " display incomplete commands
-set showmatch                     " show matching paren
 set splitbelow                    " split window with new one on bottom
+set synmaxcol=200
 set timeoutlen=500                " delay for keystroke shortcuts
+set ttyfast
 set virtualedit=all               " allow the cursor to go in to 'invalid' places
 
 set undofile                      " Store indefinite undo
