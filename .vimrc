@@ -253,6 +253,10 @@ nnoremap <leader>zw :ZoomWin<CR>
 " New Tab
 map <leader>nt :tabe<CR>
 
+" Tabularize align
+nnoremap <leader>t :Tabularize /
+vnoremap <leader>t :Tabularize /
+
 "==================================================================
 " FUNCTIONS
 "==================================================================
