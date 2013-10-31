@@ -94,15 +94,6 @@ colorscheme default
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
 set complete=.,w,t
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
 " Override options with local config
 if filereadable(".vimrc.local")
