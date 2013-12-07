@@ -14,11 +14,12 @@ Bundle 'gmarik/vundle'
 "==================================================================
 
 Bundle 'drmingdrmer/xptemplate'
+Bundle 'godlygeek/tabular'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jgdavey/vim-blockle'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'johnadamson/ZoomWin.vim'
-Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'rking/ag.vim'
@@ -34,6 +35,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/jsbeautify'
 Bundle 'vim-scripts/openssl.vim'
@@ -75,7 +77,7 @@ set scrolloff=10                  " screen lines to keep above and below the cur
 set shortmess+=I                  " don't show startup message
 set showcmd                       " display incomplete commands
 set splitbelow                    " split window with new one on bottom
-set synmaxcol=200
+set synmaxcol=1000
 set timeoutlen=500                " delay for keystroke shortcuts
 set ttyfast
 set virtualedit=all               " allow the cursor to go in to 'invalid' places
@@ -102,6 +104,7 @@ endif
 " Set syntax folding method
 set foldmethod=syntax
 set foldlevelstart=99
+
 "==================================================================
 " STATUSLINE
 "==================================================================
@@ -110,14 +113,16 @@ set foldlevelstart=99
 " TMUX OPTIONS
 "==================================================================
 
-if executable('tmux') && $TMUX != ''
-  set mouse+=a " for tmux mouse integration
-endif
-
-" Support different cursor in insert mode.
-if &term == "screen-256color"
-  let &t_SI = "\<Esc>[3 q"
-  let &t_EI = "\<Esc>[0 q"
+if executable('tmux') && exists('$TMUX')
+  " for tmux mouse integration
+  set mouse+=a
+  " Support different cursor in insert mode and tmux
+  " let &t_SI = "\<Esc>[3 q"
+  " let &t_EI = "\<Esc>[0 q"
+else
+  " Support different cursor in insert mode
+  " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
 "==================================================================
@@ -240,8 +245,11 @@ command! FormatJSON silent %!python -m json.tool
 " Format XML
 command! FormatXML silent %!xmllint --encode UTF-8 --format -
 
+" Format Ruby Hash
+command! FormatRubyHash silent %!ruby -r'pp' -e "pp(`cat %`)"
+
 " Show NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>n :NERDTreeTabsToggle<CR>
 
 " open buffer in marked
 command! Marked silent !open -a "Marked.app" "%:p"
@@ -253,8 +261,17 @@ nnoremap <leader>zw :ZoomWin<CR>
 map <leader>nt :tabe<CR>
 
 " Tabularize align
-nnoremap <leader>t :Tabularize /
-vnoremap <leader>t :Tabularize /
+nnoremap <leader>th :Tabularize /=><CR>
+vnoremap <leader>th :Tabularize /=><CR>
+nnoremap <leader>te :Tabularize /=<CR>
+vnoremap <leader>te :Tabularize /=<CR>
+nnoremap <leader>tj :Tabularize /:\zs/l0c1l0<CR>
+vnoremap <leader>tj :Tabularize /:\zs/l0c1l0<CR>
+
+" AddTabularPattern! js /:\zs/l0c1l0
+
+" Fast save
+nnoremap <leader>w :w<CR>
 
 "==================================================================
 " FUNCTIONS
