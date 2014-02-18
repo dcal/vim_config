@@ -91,8 +91,9 @@ let &undodir=expand('~/.vim/.undodir')
 
 " Color scheme
 set t_Co=256
-set background=dark
-colorscheme default
+set background=light
+" colorscheme default
+hi Search cterm=NONE ctermfg=white
 
 " Tab completion
 " will insert tab at beginning of line
