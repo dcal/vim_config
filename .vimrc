@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " BUNDLES
 "==================================================================
 
+" Bundle 'brookhong/DBGPavim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'godlygeek/tabular'
@@ -183,6 +184,10 @@ let NERDTreeIgnore=['\~$', '\.DS_Store']
 " CTags / Rails.vim
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
+" DBGPavim / Xdebug
+" let g:dbgPavimPort = 9010
+" let g:dbgPavimBreakAtEntry = 1
 
 "==================================================================
 " KEY BINDINGS
