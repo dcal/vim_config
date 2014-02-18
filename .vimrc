@@ -82,6 +82,7 @@ set showcmd                       " display incomplete commands
 set splitbelow                    " split window with new one on bottom
 set synmaxcol=1000
 set timeoutlen=500                " delay for keystroke shortcuts
+set ttimeoutlen=0                 " delay for key codes
 set ttyfast
 set virtualedit=all               " allow the cursor to go in to 'invalid' places
 
@@ -108,25 +109,6 @@ endif
 set foldmethod=syntax
 set foldlevelstart=99
 
-"==================================================================
-" STATUSLINE
-"==================================================================
-
-"==================================================================
-" TMUX OPTIONS
-"==================================================================
-
-if executable('tmux') && exists('$TMUX')
-  " for tmux mouse integration
-  set mouse+=a
-  " Support different cursor in insert mode and tmux
-  " let &t_SI = "\<Esc>[3 q"
-  " let &t_EI = "\<Esc>[0 q"
-else
-  " Support different cursor in insert mode
-  " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
 
 "==================================================================
 " FILE TYPE OPTIONS
