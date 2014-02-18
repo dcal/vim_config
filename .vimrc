@@ -118,6 +118,7 @@ filetype plugin indent on
 augroup vimrcEx
   au!
 
+  autocmd FileType ruby setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   autocmd FileType text setlocal textwidth=78
   autocmd FileType go setlocal shiftwidth=4 tabstop=4 makeprg=go\ build
 
