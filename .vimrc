@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " BUNDLES
 "==================================================================
 
+Bundle 'derekwyatt/vim-scala'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'godlygeek/tabular'
 Bundle 'jelera/vim-javascript-syntax'
