@@ -263,7 +263,7 @@ vnoremap <leader>tj :Tabularize /:\zs/l0c1l0<CR>
 nnoremap <leader>w :w<CR>
 
 " Write as sudo
-cnoremap w!! w !sudo tee > /dev/null %
+cnoremap w!! w !sudo tee > /dev/null "%"
 
 "==================================================================
 " FUNCTIONS
