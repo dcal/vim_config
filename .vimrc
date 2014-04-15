@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'derekwyatt/vim-scala'
 Bundle 'drmingdrmer/xptemplate'
+Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'jelera/vim-javascript-syntax'
