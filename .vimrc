@@ -92,10 +92,10 @@ set undofile                      " Store indefinite undo
 let &undodir=expand('~/.vim/.undodir')
 
 " Color scheme
-set t_Co=256
-set background=light
-" colorscheme default
-hi Search cterm=NONE ctermfg=white
+highlight Search   cterm=NONE ctermfg=black
+highlight Folded   cterm=NONE ctermfg=black
+highlight Pmenu    cterm=NONE ctermfg=black
+highlight PmenuSel cterm=NONE ctermfg=white ctermbg=blue
 
 " Tab completion
 " will insert tab at beginning of line
