@@ -17,8 +17,8 @@ Bundle 'StanAngeloff/php.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'godlygeek/tabular'
 Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'godlygeek/tabular'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -26,6 +26,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'johnadamson/ZoomWin.vim'
 Bundle 'joonty/vdebug'
 Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'pangloss/vim-javascript'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
@@ -43,7 +44,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/jsbeautify'
 Bundle 'vim-scripts/openssl.vim'
-Bundle 'vim-scripts/vim-matchit'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'widox/vim-buffer-explorer-plugin'
 
@@ -92,8 +92,9 @@ set undofile                      " Store indefinite undo
 let &undodir=expand('~/.vim/.undodir')
 
 " Color scheme
+set t_Co=256
 highlight Search   cterm=NONE ctermfg=black
-highlight Folded   cterm=NONE ctermfg=black
+highlight Folded   cterm=NONE ctermfg=250 ctermbg=239
 highlight Pmenu    cterm=NONE ctermfg=black
 highlight PmenuSel cterm=NONE ctermfg=white ctermbg=blue
 
@@ -111,7 +112,6 @@ endif
 " Set syntax folding method
 set foldmethod=syntax
 set foldlevelstart=99
-
 
 "==================================================================
 " FILE TYPE OPTIONS
@@ -235,6 +235,7 @@ command W w
 command WQ wq
 command Wq wq
 command Q q
+command Qall qall
 command Tabe tabe
 command TAbe tabe
 
@@ -304,3 +305,4 @@ function! PromoteToLet()
 endfunction
 :command! PromoteToLet :call PromoteToLet()
 
+" vim: ft=vim
