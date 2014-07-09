@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " BUNDLES
 "==================================================================
 
+Bundle 'StanAngeloff/php.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'ekalinin/Dockerfile.vim'
@@ -30,7 +31,6 @@ Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'skalnik/vim-vroom'
-Bundle 'StanAngeloff/php.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-endwise'
@@ -122,6 +122,7 @@ augroup vimrcEx
   au!
 
   autocmd FileType ruby setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  autocmd FileType php setlocal foldmethod=indent shiftwidth=4 tabstop=4 list!
   autocmd FileType text setlocal textwidth=78
   autocmd FileType go setlocal shiftwidth=4 tabstop=4 makeprg=go\ build
 
@@ -171,6 +172,28 @@ let NERDTreeIgnore=['\~$', '\.DS_Store']
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
+let g:vdebug_options = {
+\    "timeout" : 20,
+\    "break_on_open" : 1,
+\    "watch_window_style" : 'compact',
+\    "continuous_mode" : 1
+\}
+"    \    "port" : 9000,
+"    \    "server" : 'localhost',
+"    \    "timeout" : 20,
+"    \    "on_close" : 'detach',
+"    \    "break_on_open" : 1,
+"    \    "ide_key" : '',
+"    \    "path_maps" : {},
+"    \    "debug_window_level" : 0,
+"    \    "debug_file_level" : 0,
+"    \    "debug_file" : "",
+"    \    "watch_window_style" : 'expanded',
+"    \    "marker_default" : '⬦',
+"    \    "marker_closed_tree" : '▸',
+"    \    "marker_open_tree" : '▾'
+"    \}
+"\}
 "==================================================================
 " KEY BINDINGS
 "==================================================================
