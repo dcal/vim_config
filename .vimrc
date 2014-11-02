@@ -19,10 +19,10 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'fatih/vim-go'
 Bundle 'godlygeek/tabular'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'johnadamson/ZoomWin.vim'
 Bundle 'joonty/vdebug'
 Bundle 'kien/ctrlp.vim'
@@ -125,6 +125,8 @@ augroup vimrcEx
   autocmd FileType php setlocal foldmethod=indent shiftwidth=4 tabstop=4 list!
   autocmd FileType text setlocal textwidth=78
   autocmd FileType go setlocal shiftwidth=4 tabstop=4 makeprg=go\ build
+  autocmd FileType go setlocal nolist
+  autocmd FileType go map <buffer> <leader>r :GoTest<CR>
 
   " Jump to the last known cursor position when opening a file, but only if
   " the position is not invalid or in an event handler.
@@ -194,6 +196,35 @@ let g:vdebug_options = {
 "    \    "marker_open_tree" : '▾'
 "    \}
 "\}
+
+let g:tagbar_type_go = {  
+  \ 'ctagstype' : 'go',
+  \ 'kinds'     : [
+  \   'p:package',
+  \   'i:imports:1',
+  \   'c:constants',
+  \   'v:variables',
+  \   't:types',
+  \   'n:interfaces',
+  \   'w:fields',
+  \   'e:embedded',
+  \   'm:methods',
+  \   'r:constructor',
+  \   'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+  \   't' : 'ctype',
+  \   'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+  \   'ctype' : 't',
+  \   'ntype' : 'n'
+  \ },
+  \ 'ctagsbin'  : 'gotags',
+  \ 'ctagsargs' : '-sort -silent'
+\ }
+
 "==================================================================
 " KEY BINDINGS
 "==================================================================
