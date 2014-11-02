@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " BUNDLES
 "==================================================================
 
+Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'drmingdrmer/xptemplate'
@@ -20,7 +21,6 @@ Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'godlygeek/tabular'
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'jgdavey/vim-blockle'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'johnadamson/ZoomWin.vim'
