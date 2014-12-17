@@ -328,6 +328,9 @@ nnoremap <leader>w :w<CR>
 " Write as sudo
 cnoremap w!! w !sudo tee > /dev/null "%"
 
+" Toggle Relative and absolute numbering
+nnoremap <leader>tn :call NumberToggle()<CR>
+
 "==================================================================
 " FUNCTIONS
 "==================================================================
@@ -344,5 +347,15 @@ function! PromoteToLet()
   :normal ==
 endfunction
 :command! PromoteToLet :call PromoteToLet()
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+    set norelativenumber
+  else
+    set relativenumber
+    set nonumber
+  endif
+endfunc
 
 " vim: ft=vim
