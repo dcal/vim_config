@@ -14,3 +14,12 @@ XPT bp
 
 XPT brp
 - require 'pry-remote'; binding.remote_pry
+
+XPT bb
+- require 'byebug'; byebug
+
+XPT bbr
+- require 'byebug'; Byebug.start_server
+
+XPT b
+- byebug

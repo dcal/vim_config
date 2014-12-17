@@ -18,3 +18,11 @@ require 'pry-remote'; binding.remote_pry
 XPT ts
 # vim: ft=ruby ts=2 sts=2 sw=2 expandtab
 
+XPT bb
+require 'byebug'; byebug
+
+XPT bbr
+require 'byebug'; Byebug.start_server
+
+XPT b
+byebug
