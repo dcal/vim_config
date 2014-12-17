@@ -317,6 +317,8 @@ nnoremap <leader>tt :Tabularize /^\S\+\zs/l0c1l0<CR>
 vnoremap <leader>tt :Tabularize /^\S\+\zs/l0c1l0<CR>
 nnoremap <leader>ts :Tabularize /\S*\s\{2,}\zs/l3l3l3<CR>
 vnoremap <leader>ts :Tabularize /\S*\s\{2,}\zs/l3l3l3<CR>
+nnoremap <leader>tc :Tabularize /,\zs/l0c1l1<CR>
+vnoremap <leader>tc :Tabularize /,\zs/l0c1l1<CR>
 
 " AddTabularPattern! js /:\zs/l0c1l0
 
