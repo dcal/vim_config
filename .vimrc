@@ -98,6 +98,7 @@ highlight Folded   cterm=NONE ctermfg=250 ctermbg=239
 highlight Pmenu    cterm=NONE ctermfg=black
 highlight PmenuSel cterm=NONE ctermfg=white ctermbg=blue
 highlight Spellbad cterm=NONE ctermfg=black
+highlight Visual   cterm=NONE ctermfg=black ctermbg=yellow
 
 " Tab completion
 " will insert tab at beginning of line
@@ -122,6 +123,7 @@ filetype plugin indent on
 augroup vimrcEx
   au!
 
+  autocmd BufEnter * :syntax sync fromstart    " The file will be parsed from the start 
   autocmd FileType ruby setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   autocmd FileType php setlocal foldmethod=indent shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType text setlocal textwidth=78
