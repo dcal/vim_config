@@ -37,6 +37,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'mac' : 'make -f make_mac.mak',
@@ -253,6 +254,31 @@ let g:tagbar_type_go = {
   \ 'ctagsbin'  : 'gotags',
   \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" neocomplete
+let g:neocomplete#enable_at_startup       = 1
+let g:neocomplete#disable_auto_complete   = 1
+let g:neocomplete#enable_ignore_case      = 1
+let g:neocomplete#enable_fuzzy_completion = 1
+let g:neocomplete#data_directory          = '~/.vim/.neocomplete'
+
+" let g:neosnippet#enable_preview = 0
+" set completeopt+=preview
+
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+"
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"             \ "\<Plug>(neosnippet_expand_or_jump)"
+"             \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"             \ "\<Plug>(neosnippet_expand_or_jump)"
+"             \: "\<TAB>"
+
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
 
 "==================================================================
 " KEY BINDINGS
