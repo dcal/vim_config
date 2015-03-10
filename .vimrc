@@ -20,6 +20,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'drmingdrmer/xptemplate'
 NeoBundle 'ekalinin/Dockerfile.vim'
