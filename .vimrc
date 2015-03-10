@@ -93,12 +93,16 @@ let &undodir=expand('~/.vim/.undodir')
 
 " Color scheme
 set t_Co=256
-highlight Search   cterm=NONE ctermfg=black
-highlight Folded   cterm=NONE ctermfg=250 ctermbg=239
-highlight Pmenu    cterm=NONE ctermfg=black
-highlight PmenuSel cterm=NONE ctermfg=white ctermbg=blue
-highlight Spellbad cterm=NONE ctermfg=black
-highlight Visual   cterm=NONE ctermfg=black ctermbg=yellow
+highlight Search     cterm=NONE ctermfg=black
+highlight Folded     cterm=NONE ctermfg=250   ctermbg=239
+highlight Pmenu      cterm=NONE ctermfg=black
+highlight PmenuSel   cterm=NONE ctermfg=white ctermbg=blue
+highlight Spellbad   cterm=NONE ctermfg=black
+highlight Visual     cterm=NONE ctermfg=black ctermbg=yellow
+highlight DiffAdd    cterm=NONE ctermfg=black
+highlight DiffChange cterm=NONE ctermfg=black
+highlight DiffDelete cterm=NONE ctermfg=black
+highlight DiffText   cterm=NONE ctermfg=black
 
 " Tab completion
 " will insert tab at beginning of line
