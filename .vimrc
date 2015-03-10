@@ -134,6 +134,7 @@ augroup vimrcEx
   autocmd FileType go setlocal shiftwidth=4 tabstop=4 makeprg=go\ build
   autocmd FileType go setlocal nolist
   autocmd FileType go map <buffer> <leader>r :GoTest<CR>
+  autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
   " Jump to the last known cursor position when opening a file, but only if
   " the position is not invalid or in an event handler.
