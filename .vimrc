@@ -2,50 +2,69 @@
 " BOOTSTRAP
 "==================================================================
 
-set nocompatible
-filetype off
+" Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+if has('vim_starting')
+ if &compatible
+   set nocompatible  " Be iMproved
+ endif
 
-"==================================================================
-" BUNDLES
-"==================================================================
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'StanAngeloff/php.vim'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'drmingdrmer/xptemplate'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'evanmiller/nginx-vim-syntax'
-Bundle 'fatih/vim-go'
-Bundle 'godlygeek/tabular'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'johnadamson/ZoomWin.vim'
-Bundle 'joonty/vdebug'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'pangloss/vim-javascript'
-Bundle 'rking/ag.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'skalnik/vim-vroom'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'vim-scripts/jsbeautify'
-Bundle 'vim-scripts/openssl.vim'
-Bundle 'vim-scripts/vimwiki'
-Bundle 'widox/vim-buffer-explorer-plugin'
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'drmingdrmer/xptemplate'
+NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'evanmiller/nginx-vim-syntax'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'johnadamson/ZoomWin.vim'
+" NeoBundle 'joonty/vdebug'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'mac' : 'make -f make_mac.mak',
+      \     'linux' : 'make'
+      \    },
+      \ }
+NeoBundle 'skalnik/vim-vroom'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-scripts/ctags.vim'
+NeoBundle 'vim-scripts/jsbeautify'
+NeoBundle 'vim-scripts/openssl.vim'
+NeoBundle 'vim-scripts/vimwiki'
+NeoBundle 'widox/vim-buffer-explorer-plugin'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+" Install bundles that don't exist 
+NeoBundleCheck
+
 
 "==================================================================
 " GENERAL OPTIONS

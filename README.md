@@ -19,7 +19,3 @@ Yet another [Vim](http://www.vim.org) config for Vim 7.4.
 ~ $ ln -s ./vim_config/.vimrc
 ```
 
-### Vundle
-```
-:BundleInstall
-```
