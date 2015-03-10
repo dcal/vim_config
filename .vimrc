@@ -56,6 +56,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/ctags.vim'
 NeoBundle 'vim-scripts/jsbeautify'
 NeoBundle 'vim-scripts/openssl.vim'
+NeoBundle 'vim-scripts/ruby-matchit'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'widox/vim-buffer-explorer-plugin'
 
