@@ -26,3 +26,6 @@ require 'byebug'; Byebug.start_server
 
 XPT b
 byebug
+
+XPT rb
+require 'byebug'; byebug

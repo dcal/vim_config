@@ -2,6 +2,7 @@
 " BOOTSTRAP
 "==================================================================
 
+
 " Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -30,7 +31,6 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'johnadamson/ZoomWin.vim'
-" NeoBundle 'joonty/vdebug'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'pangloss/vim-javascript'
@@ -61,13 +61,18 @@ NeoBundle 'vim-scripts/ruby-matchit'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'widox/vim-buffer-explorer-plugin'
 
+" LOCAL ADDITIONS"
+NeoBundle 'mohertz/gruvbox'
+NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'edkolev/promptline.vim'
+NeoBundle 'itchyny/lightline.vim'
+
 call neobundle#end()
 
 filetype plugin indent on
 
-" Install bundles that don't exist 
+" Install bundles that don't exist
 NeoBundleCheck
-
 
 "==================================================================
 " GENERAL OPTIONS
@@ -82,7 +87,6 @@ NeoBundleCheck
 " :noautocmd qall!
 
 syntax enable
-
 let mapleader = ","
 set autoread                      " when file changes outside of vim, reload
 set backspace=indent,eol,start
@@ -94,6 +98,7 @@ set lazyredraw                    " dont redraw screen while executing commands,
 set laststatus=2                  " always display the status line
 set list listchars=tab:▸\ ,trail:· " display tabs and trailing whitespace
 set nobackup
+set noshowmode
 set noswapfile
 set nowrap
 set nowritebackup
@@ -115,6 +120,9 @@ let &undodir=expand('~/.vim/.undodir')
 
 " Color scheme
 set t_Co=256
+colorscheme gruvbox
+set background=dark
+
 highlight Search     cterm=NONE ctermfg=black
 highlight Folded     cterm=NONE ctermfg=250   ctermbg=239
 highlight Pmenu      cterm=NONE ctermfg=black
@@ -185,8 +193,15 @@ let g:syntastic_check_on_open=1
 let g:syntastic_aggregate_errors=1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_enable_highlighting=0
+let g:syntastic_quiet_messages = {
+\ "!level":  "errors",
+\ "type"  :    "style" }
 
-" Ctrlp
+" CtrlP
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
 let g:ctrlp_working_path_mode = 0     " don't manage working directory
 let g:ctrlp_clear_cache_on_exit = 0   " remember cache from previous session
 let g:ctrlp_lazy_update = 25          " delay before updating results
@@ -410,4 +425,131 @@ function! NumberToggle()
   endif
 endfunc
 
-" vim: ft=vim
+
+"=================================================================
+" AIRLINE -- LEAVE HERE!!!
+" ================================================================
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \   'ctrlpmark': 'CtrlPMark',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help' && &readonly ? '' : ''
+endfunction
+
+function! MyFilename()
+  let fname = expand('%:t')
+  return  fname =~ 'ControlP' ? g:lightline.ctrlp_item :
+        \ fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  try
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ' '
+      let _ = fugitive#head()
+      return strlen(_) ? mark._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! CtrlPMark()
+  if expand('%:t') =~ 'ControlP'
+    call lightline#link('iR'[g:lightline.ctrlp_regex])
+    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+          \ , g:lightline.ctrlp_next], 0)
+  else
+    return ''
+  endif
+endfunction
+
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+    let g:lightline.fname = a:fname
+  return lightline#statusline(0)
+endfunction
+
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0"
