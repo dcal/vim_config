@@ -25,5 +25,5 @@ XPT bb
 require 'byebug'; byebug
 
 XPT bbr
-require 'byebug'; Byebug.start_server
+require 'byebug'; Byebug.wait_connection = true; Byebug.start_server('localhost', 8989)
 
